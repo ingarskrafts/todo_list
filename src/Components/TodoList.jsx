@@ -23,7 +23,7 @@ const TodoList = () => {
             className="heading-input"
             placeholder="Enter heading"
             value={headingInput}
-            onChange={(e) => {setHeadingInput(e.target.value);}} {/* Add onChange event handler to update headingInput state */}
+            onChange={(e) => {setHeadingInput(e.target.value);}} //Add onChange event handler to update headingInput state
           />
           <button className="add-list-button" onClick={handleAddTodo}>Add Heading</button>
         </div>
@@ -34,6 +34,15 @@ const TodoList = () => {
                 <div className='heading_todo'>
                     <h3>{todo.heading}</h3>
                     <button className='delete-button-heading' onClick={() => handleDeleteTodo(index)}>Delete Heading</button>
+                </div>
+                <div className='add_list'>
+                    <input
+                        type='text'
+                        className='list-input'
+                        placeholder='Add List'
+                        value={listInputs[index] || ''}
+                        onChange={(e) => handleListInputChange(index, e.target.value)}/>
+                        <button className='add-list-button' onClick={() => handleAddList(index)}>Add List</button>
                 </div>
             </div>
         ))}
